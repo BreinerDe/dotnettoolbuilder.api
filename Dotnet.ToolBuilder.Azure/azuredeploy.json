@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serverFarmName": {
+      "type": "string",
+      "defaultValue": "ASP-BreinerDeRes-958e"
+    },
+    "serverFarmResourceGroup": {
+      "type": "string",
+      "defaultValue": "BreinerDeRes"
+    }},
+  "variables": {
+    "Dotnet.ToolBuilder.ApiName": "[concat('Dotnet.ToolBuilder.Api', uniqueString(resourceGroup().id))]"},
+  "resources": [
+    {
+      "name": "[variables('Dotnet.ToolBuilder.ApiName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "westeurope",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [ ],
+      "tags": {
+        "[concat('hidden-related:', resourceId(parameters('serverFarmResourceGroup'), 'Microsoft.Web/serverFarms', parameters('serverFarmName')))]": "Resource",
+        "displayName": "Dotnet.ToolBuilder.Api"
+      },
+      "properties": {
+        "name": "[variables('Dotnet.ToolBuilder.ApiName')]",
+        "serverFarmId": "[resourceId(parameters('serverFarmResourceGroup'), 'Microsoft.Web/serverFarms', parameters('serverFarmName'))]"
+      }
+    }],
+  "outputs": {}
+}

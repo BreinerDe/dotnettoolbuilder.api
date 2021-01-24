@@ -1,0 +1,7 @@
+docker build . -t breinerde/dotnettoolbuilder.api:$1
+
+docker push breinerde/:$1
+
+docker tag breinerde/fishinghub:$1 breinerde/fishinghub:latest
+
+docker push breinerde/fishinghub:latest

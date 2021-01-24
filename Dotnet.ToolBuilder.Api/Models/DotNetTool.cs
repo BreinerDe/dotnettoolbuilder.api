@@ -1,0 +1,19 @@
+﻿
+namespace Dotnet.ToolBuilder.Api.Models
+{
+    public class DotNetTool
+    {
+        public DotNetTool(string projectName, DotNetToolName dotNetToolName, CommandInfo parameterInfo)
+        {
+            ProjectName = projectName;
+            DotNetToolName = dotNetToolName;
+            ParameterInfo = parameterInfo;
+        }
+
+        public string ProjectName { get; init;}
+
+        public DotNetToolName DotNetToolName { get; init;}
+
+        public CommandInfo ParameterInfo { get; init;}
+    }
+}

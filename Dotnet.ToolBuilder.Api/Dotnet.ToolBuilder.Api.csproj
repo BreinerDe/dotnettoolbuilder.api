@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>c130ddfd-0e86-42e2-821a-a3b03a357a8f</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="My.Awesome.Tool\**" />
+    <Content Remove="My.Awesome.Tool\**" />
+    <EmbeddedResource Remove="My.Awesome.Tool\**" />
+    <None Remove="My.Awesome.Tool\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetTool.Service" Version="0.2.1" />
+    <PackageReference Include="FileSystem.Abstraction" Version="0.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" NoWarn="NU1605" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.1" NoWarn="NU1605" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,26 @@
+{
+  "ProjectName": "My.Awesome.Tool",
+  "DotNetToolName": {
+    "Name": "MyAwesomeTool",
+    "NormalizedName": "MyAwesomeTool"
+  },
+  "ParameterInfo": {
+    "SubCommands": [
+      {
+        "SubCommands": [],
+        "Options": [],
+        "Argument": null,
+        "Description": "doing shit",
+        "Value": "DoShit",
+        "Name": "DoShit",
+        "NormalizedName": "DoShit"
+      }
+    ],
+    "Options": [],
+    "Argument": null,
+    "Description": "doing awesome shit",
+    "Value": "MyAwesomeTool",
+    "Name": "MyAwesomeTool",
+    "NormalizedName": "MyAwesomeTool"
+  }
+}
