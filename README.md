@@ -1,4 +1,4 @@
- # DotnetTollBuilderApi  ![Docker Pulls](https://img.shields.io/docker/pulls/breinerde/dotnettoolbuilder.api)
+ # DotnetToolBuilderApi  ![Docker Pulls](https://img.shields.io/docker/pulls/breinerde/dotnettoolbuilder.api)
 
 
 This is an API to create easy and clean .Net Tools using the [DotNetToolBuilder](https://renepeuser.visualstudio.com/DotNetToolBuilder).
