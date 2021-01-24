@@ -6,13 +6,13 @@ This is an API to create easy and clean .Net Tools using the [DotNetToolBuilder]
 
 ## Azure
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FBreinerDe%2Fdotnettoolbuilder.api%2Fmain%2FAzure%2Fazuredeploy.json%3Ftoken%3DALF6BHSPCPPTZNCRL2YMP5TABWXEU)
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FBreinerDe%2Fdotnettoolbuilder.api%2Fmain%2FAzure%2Fazuredeploy.json)
 [![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FBreinerDe%2Fdotnettoolbuilder.api%2Fmain%2FAzure%2Fazuredeploy.json%3Ftoken%3DALF6BHSPCPPTZNCRL2YMP5TABWXEU)
 
 
 
 You can deploy an instance of this API to you own Azure Resources.
-This tempolate will deploy the following Resources:
+This template will deploy the following Resources:
 
 * App Service Plan
 * Azure Web App running the dotnettoolbuilder.api container from [Dockerhub ](https://hub.docker.com/r/breinerde/dotnettoolbuilder.api)
