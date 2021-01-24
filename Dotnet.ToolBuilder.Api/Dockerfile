@@ -22,8 +22,6 @@ RUN sudo apt install -y dotnet-sdk-3.1
 
 RUN dotnet tool install --global "DotNetTool.Builder" --version 0.9.6
 ENV PATH "$PATH:/root/.dotnet/tools"
+ENV ASPNETCORE_URLS="http://+;https://+"
 RUN echo $PATH
 ENTRYPOINT ["dotnet", "Dotnet.ToolBuilder.Api.dll"]
-
-
-
