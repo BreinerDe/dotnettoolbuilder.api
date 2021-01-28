@@ -11,7 +11,7 @@ This is an API to create easy and clean .Net Tools using the [DotNetToolBuilder]
 
 
 
-You can deploy an instance of this API to you own Azure Resources.
+You can deploy an instance of this API to your own Azure Resources.
 This template will deploy the following Resources:
 
 * App Service Plan
