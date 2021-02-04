@@ -1,4 +1,5 @@
-﻿using Dotnet.ToolBuilder.Api.ErrorHandling;
+﻿using AspNetCore.Simple.Sdk.ErrorHandling;
+using AspNetCore.Simple.Sdk.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

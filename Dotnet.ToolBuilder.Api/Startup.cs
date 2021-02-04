@@ -1,71 +1,38 @@
-using Dotnet.ToolBuilder.Api.ErrorHandling;
+using AspNetCore.Simple.Sdk.Startups;
+using Dotnet.ToolBuilder.Api.API.DotnetTool;
 using Dotnet.ToolBuilder.Api.Extensions;
-using Dotnet.ToolBuilder.Api.Services.DirectoryBuilder;
-using Dotnet.ToolBuilder.Api.Services.DotnetToolBuilder;
-using Dotnet.ToolBuilder.Api.Services.JsonFileCreator;
-using Dotnet.ToolBuilder.Api.Services.JsonSerializer;
-using Dotnet.ToolBuilder.Api.Services.Stream;
-using Dotnet.ToolBuilder.Api.Settings;
 using DotNetTool.Service;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
 using FileService = FileSystem.Abstraction.FileService;
 using IFileService = FileSystem.Abstraction.IFileService;
 
 namespace Dotnet.ToolBuilder.Api
 {
-    public class Startup
+    public class Startup : SimpleStartup
     {
-        public Startup(IConfiguration configuration)
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment) : base(configuration, webHostEnvironment, typeof(Startup).Assembly, new PathString("/api/toolbuilder"), "Pulse Core API")
         {
-            Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; init; }
-        public void ConfigureServices(IServiceCollection services)
+        public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddJsonFileCreatorService();
-            services.AddErrorHandling();
-            services.AddJsonSerializer();
-            services.AddDotnetToolBuilderService();
-            services.AddDirectoryBuilder();
-            services.AddStreamService();
+            base.ConfigureServices(services);
+
+            services.AddDotnetTool();
 
             services.AddSingleton<IFileService, FileService>();
 
             var dotnetTool = DotNetToolFactory.Create();
 
-            services.AddDirectoryService();
+            services.AddDotnetTool();
             services.AddSingleton<IDotNetTool>(dotnetTool);
             services.AddSingletonOption<DotnetToolBuilderSettings>(Configuration);
             services.AddSingletonOption<FileSettings>(Configuration);
-
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Dotnet.ToolBuilder.Api", Version = "v1" });
-            });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            app.UseMiddleware<ErrorHandlingMiddleware>();
-
-            app.UseCors("AllowAll");
-
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dotnet.ToolBuilder.Api v1"));
-
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-        }
     }
 }
