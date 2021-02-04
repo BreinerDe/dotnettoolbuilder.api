@@ -1,6 +1,6 @@
+using AspNetCore.Simple.Sdk.Extensions;
 using AspNetCore.Simple.Sdk.Startups;
 using Dotnet.ToolBuilder.Api.API.DotnetTool;
-using Dotnet.ToolBuilder.Api.Extensions;
 using DotNetTool.Service;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;

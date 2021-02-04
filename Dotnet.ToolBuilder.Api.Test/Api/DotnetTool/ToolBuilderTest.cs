@@ -1,7 +1,9 @@
 ﻿using System.Threading.Tasks;
+using Dotnet.ToolBuilder.Api.API.DotnetTool;
 using Dotnet.ToolBuilder.Api.Test.Base;
 using Dotnet.ToolBuilder.Api.Test.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Dotnet.ToolBuilder.Api.Test.Api.DotnetTool
 {

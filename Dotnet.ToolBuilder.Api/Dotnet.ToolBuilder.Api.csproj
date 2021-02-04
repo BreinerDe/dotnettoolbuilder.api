@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.Simple.Sdk" Version="0.1.0-alpha.20" />
+    <PackageReference Include="AspNetCore.Simple.Sdk" Version="0.1.0-alpha.21" />
     <PackageReference Include="DotNetTool.Service" Version="0.2.1" />
     <PackageReference Include="FileSystem.Abstraction" Version="0.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" NoWarn="NU1605" />

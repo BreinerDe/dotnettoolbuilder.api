@@ -23,14 +23,11 @@ namespace Dotnet.ToolBuilder.Api.Test.Base
             CustomWebApplicationFactory = new CustomWebApplicationFactory();
             ServiceProvider = CustomWebApplicationFactory.Services;
             Client = CustomWebApplicationFactory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
-            JsonSerializer = CustomWebApplicationFactory.Services.GetService<IJsonSerializer>()!;
         }
 
         private static CustomWebApplicationFactory CustomWebApplicationFactory { get; set; } = null!;
 
         internal static IServiceProvider ServiceProvider { get; private set; } = null!;
-
-        internal static IJsonSerializer JsonSerializer { get; private set; } = null!;
 
         protected static HttpClient Client { get; private set; } = null!;
 
