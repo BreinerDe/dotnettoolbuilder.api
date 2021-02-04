@@ -7,7 +7,6 @@ using Dotnet.ToolBuilder.Api.Services.JsonSerializer;
 using Dotnet.ToolBuilder.Api.Services.Stream;
 using Dotnet.ToolBuilder.Api.Settings;
 using DotNetTool.Service;
-using FileSystem.Abstraction;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -38,8 +37,9 @@ namespace Dotnet.ToolBuilder.Api
             services.AddSingleton<IFileService, FileService>();
 
             var dotnetTool = DotNetToolFactory.Create();
+
+            services.AddDirectoryService();
             services.AddSingleton<IDotNetTool>(dotnetTool);
-            services.AddSingleton<IDirectoryService, DirectoryService>();
             services.AddSingletonOption<DotnetToolBuilderSettings>(Configuration);
             services.AddSingletonOption<FileSettings>(Configuration);
 

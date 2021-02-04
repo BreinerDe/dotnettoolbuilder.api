@@ -1,32 +1,13 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using FileSystem.Abstraction;
 
 namespace Dotnet.ToolBuilder.Api.Models
 {
-    public class DisposableFile : IDisposable
+    public sealed record DisposableFile(IFileInfo FileInfo) : DisposableObject
     {
-        public IFileInfo FileInfo { get; }
-
-        public DisposableFile(IFileInfo fileInfo)
-        {
-            FileInfo = fileInfo;
-        }
-
-        private void ReleaseUnmanagedResources()
+        protected override void DisposeManagedResources()
         {
             Directory.Delete(FileInfo.Directory.FullName, true);
-        }
-
-        public void Dispose()
-        {
-            ReleaseUnmanagedResources();
-            GC.SuppressFinalize(this);
-        }
-
-        ~DisposableFile()
-        {
-            ReleaseUnmanagedResources();
         }
     }
 }

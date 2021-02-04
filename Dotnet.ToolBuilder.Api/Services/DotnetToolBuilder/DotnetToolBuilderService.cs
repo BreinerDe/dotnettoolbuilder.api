@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Dotnet.ToolBuilder.Api.ErrorHandling;
 using Dotnet.ToolBuilder.Api.Services.JsonFileCreator;
@@ -29,11 +30,11 @@ namespace Dotnet.ToolBuilder.Api.Services.DotnetToolBuilder
             this.resultCodeHandler = resultCodeHandler;
         }
 
-        public async Task<MemoryStream> GetDotnetToolAsync(Models.DotNetTool data)
+        public async Task<MemoryStream> GetDotnetToolAsync(Models.DotNetTool data, string consoleParameter = "")
         {
             using var jsonFile = jsonFileCreatorService.CreateJsonFrom(data);
             var zipName = Path.Combine(jsonFile.FileInfo.Directory.FullName, $"{data.ProjectName}s.zip");
-            var result = await dotNetTool.RunAsync(dotnetToolBuilderSettings.BaseCommand, $"-ff {jsonFile.FileInfo.FullName} -az {zipName}");
+            var result = await dotNetTool.RunAsync(dotnetToolBuilderSettings.BaseCommand, $"-ff {consoleParameter} {jsonFile.FileInfo.FullName} -az {zipName}");
             resultCodeHandler.HandleDotNetToolBuilderResult(result);
             var file = streamService.ReadFileToMemoryStream(zipName);
 

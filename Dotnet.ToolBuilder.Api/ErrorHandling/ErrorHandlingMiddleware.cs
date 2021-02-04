@@ -17,7 +17,8 @@ namespace Dotnet.ToolBuilder.Api.ErrorHandling
                 await HandleExceptionAsync(context, exception);
             }
         }
-        private Task HandleExceptionAsync(HttpContext context, ProblemDetailsException exception)
+
+        private static Task HandleExceptionAsync(HttpContext context, ProblemDetailsException exception)
         {
             context.Response.Clear();
             context.Response.ContentType = MediaTypeNames.Application.Json;

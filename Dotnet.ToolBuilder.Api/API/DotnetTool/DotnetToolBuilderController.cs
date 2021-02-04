@@ -21,5 +21,11 @@ namespace Dotnet.ToolBuilder.Api.API.DotnetTool
         {
             return File(await dotnetToolBuilderService.GetDotnetToolAsync(toolData), MediaTypeNames.Application.Octet, toolData.ProjectName + ".zip");
         }
+
+        [HttpPost("Create-Unsafe")]
+        public async Task<FileStreamResult> CreateUnsafe(Models.DotNetTool toolData)
+        {
+            return File(await dotnetToolBuilderService.GetDotnetToolAsync(toolData, "-fm"), MediaTypeNames.Application.Octet, toolData.ProjectName + ".zip");
+        }
     }
 }
