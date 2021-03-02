@@ -1,25 +1,32 @@
 trigger:
-- main
+  - master  
+  - dev/*
+  - fix/*
+  - feat/*
+  - feature/*
+  - refs/tags/*
 
 pool:
-  vmImage: 'ubuntu-18.04'
-
-container: 'mcr.microsoft.com/dotnet/aspnet:5.0'
+  vmImage: 'ubuntu-latest'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  buildPlatform: 'Any CPU'
 
 steps:
-- task: VSBuild@1
+ 
+- task: GitVersion@5
+  displayName: git version
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    runtime: 'core'
+    updateAssemblyInfo: true
 
-- task: VSTest@2
+- script: dotnet build --configuration $(buildConfiguration) . /p:Version='$(GitVersion.NuGetVersion)'
+  displayName: 'dotnet build $(buildConfiguration)' 
+
+- task: DotNetCoreCLI@2
+  displayName: dotnet test
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'test'
+    projects: './Dotnet.ToolBuilder.Api.sln'
+    arguments: '--configuration $(buildConfiguration)'
