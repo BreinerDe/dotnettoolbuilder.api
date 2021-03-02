@@ -12,12 +12,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: Bash@3
-  name: restore
-  inputs:
-    targetType: 'inline'
-    script: 'dotnet restore ''$(solution)'''
-
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
