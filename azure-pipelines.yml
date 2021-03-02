@@ -12,11 +12,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: Bash@3
+  name: restore
   inputs:
-    restoreSolution: '$(solution)'
+    targetType: 'inline'
+    script: 'dotnet restore ''$(solution)'''
 
 - task: VSBuild@1
   inputs:
