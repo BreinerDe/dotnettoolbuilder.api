@@ -14,11 +14,8 @@ variables:
   buildPlatform: 'Any CPU'
 
 steps:
-- task: Bash@3
-  displayName: dotnet install toolbuilder
-  inputs:
-    targetType: 'inline'
-    script: 'dotnet tool install --global DotnetTool.Builder --version 9.0.0 && PATH="/root/.dotnet/tools:$PATH"'
+- script: 'dotnet tool install --global DotnetTool.Builder --version 9.0.0 && PATH="/root/.dotnet/tools:$PATH"'
+  displayName: 'install dotnet toolbuilder'
 
 - script: dotnet build . --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)' 
