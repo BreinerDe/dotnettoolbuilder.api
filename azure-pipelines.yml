@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-18.04'
 
 container: 'mcr.microsoft.com/dotnet/aspnet:5.0'
 
