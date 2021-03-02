@@ -1,37 +1,5 @@
- # DotnetToolBuilderApi  ![Docker Pulls](https://img.shields.io/docker/pulls/breinerde/dotnettoolbuilder.api)
+ # DotnetToolBuilderApi  
 
+## Moved to Azure Devops
 
-This is an API to create easy and clean .Net Tools using the [DotNetToolBuilder](https://renepeuser.visualstudio.com/DotNetToolBuilder).
-
-
-## Azure
-
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FBreinerDe%2Fdotnettoolbuilder.api%2Fmain%2FDotnet.ToolBuilder.Azure%2Fazuredeploy.json)
-[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FBreinerDe%2Fdotnettoolbuilder.api%2Fmain%2FDotnet.ToolBuilder.Azure%2Fazuredeploy.json)
-
-
-
-You can deploy an instance of this API to your own Azure Resources.
-This template will deploy the following Resources:
-
-* App Service Plan
-* Azure Web App running the dotnettoolbuilder.api container from [Dockerhub ](https://hub.docker.com/r/breinerde/dotnettoolbuilder.api)
-
-
-## Docker 
-
-```
-docker pull breinerde/dotnettoolbuilder.api
-```
-
-
-## Prerequisites
-
-* .Net 5
-* Docker
-* [DotNetToolBuilder](https://www.nuget.org/packages/DotNetTool.Builder/)
-
-
-
-
-
+This repository moved [here](https://dev.azure.com/breinerdennis/dotnettoolbuilder.api)
