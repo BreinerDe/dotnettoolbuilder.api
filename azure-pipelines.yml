@@ -17,8 +17,11 @@ steps:
 - script: 'dotnet tool install --global DotnetTool.Builder --version 9.0.0'
   displayName: 'install dotnet toolbuilder'
 
-- script: '$PATH:/root/.dotnet/tools'
+- script: 'PATH=$PATH:/root/.dotnet/tools'
   displayName: 'set PATH'
+  
+- script: 'dotnet-newtool'
+  displayName: 'test dotnet toolbuilder'
   
 
 - script: dotnet build . --configuration $(buildConfiguration)
