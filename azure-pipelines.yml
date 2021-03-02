@@ -15,16 +15,6 @@ variables:
 
 steps:
 
-- script: 'dotnet tool install --global DotnetTool.Builder --version 9.0.0'
-  displayName: 'install dotnet toolbuilder'
-  
-- script: 'echo $PATH'
-  displayName: 'echo $PATH'
-  
-- script: 'dotnet newtool'
-  displayName: 'dotnet newtool'
-  
-
 - script: dotnet build . --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)' 
 
