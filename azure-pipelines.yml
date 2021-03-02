@@ -21,7 +21,7 @@ steps:
   displayName: 'set PATH'
   
 - script: 'dotnet newtool'
-  displayName: 'test dotnet toolbuilder'
+  displayName: 'echo $PATH'
   
 
 - script: dotnet build . --configuration $(buildConfiguration)
