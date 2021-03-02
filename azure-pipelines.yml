@@ -20,7 +20,7 @@ steps:
 - script: 'PATH=$PATH:/root/.dotnet/tools'
   displayName: 'set PATH'
   
-- script: 'dotnet newtool'
+- script: 'echo $PATH'
   displayName: 'echo $PATH'
   
 
